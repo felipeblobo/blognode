@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const admin = require('./routes/admin.js');
 const path = require('path');
-const session = require('connect-session');
+const session = require('express-session');
 const flash = require('connect-flash');
 
 // configurações
@@ -17,11 +17,11 @@ app.use(session({
 app.use(flash());
 
 app.use((req, res, next) => {      //middleware
-    res.locals.success_msg = req.flash('success-msg')
+    res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
     next()
 })
-
+ 
 app.use(express.urlencoded({extended: true}));   //uso do body-parser
 app.use(express.json());
 
@@ -31,7 +31,13 @@ mongoose.connect('mongodb://localhost/blognode', { useNewUrlParser: true }).then
 }).catch((err) => {
     console.log(`Erro ao conectar-se com o Banco de Dados: ${err}`)
 });
-app.engine('handlebars', handlebars({defaultLayout: "main"}));  
+app.engine('handlebars', handlebars({ 
+    defaultLayout: 'main',
+    runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true,
+        },
+        })); 
 app.set('view engine', 'handlebars');
 
 // app.use(express.static(path.join(__dirname, 'public')));
