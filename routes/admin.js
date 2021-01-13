@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 require('../models/Categoria');
-const Categoria = mongoose.model('categorias')
+require('../models/Postagem');
+const Categoria = mongoose.model('categorias');
 
 router.get('/', (req,res) => {
     res.render('admin/index')
@@ -80,7 +81,7 @@ router.post('/categorias/edit', (req, res) => {
 
     }).catch((err) => {
         req.flash('error_msg', 'Houve um erro durante a edição.')
-        res.redirect('admin/categorias')
+        res.redirect('/admin/categorias')
     })
 })
 
@@ -92,6 +93,19 @@ router.post('/categorias/deletar', (req,res) => {
         req.flash('error_msg', 'Houve um erro na tentativa de deletar')    
         res.redirect('/admin/categorias') 
     })
+})
+
+router.get('/postagens', (req,res) => {
+    res.render('admin/postagens')
+})
+
+router.get('/postagens/add', (req,res) => {
+    Categoria.find().then((categorias) => {
+        res.render('admin/addpostagem', {categorias: categorias})
+    }).catch((err) => {
+        req.flash('error_msg', 'Houve um erro ao carregar o formulário')
+        res.redirect('/admin')
+    })   
 })
 
 module.exports = router

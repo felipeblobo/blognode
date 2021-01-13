@@ -26,7 +26,7 @@ app.use(express.urlencoded({extended: true}));   //uso do body-parser
 app.use(express.json());
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/blognode', { useNewUrlParser: true }).then(() => {
+mongoose.connect('mongodb://localhost/blognode', { useUnifiedTopology: true }, { useNewUrlParser: true }).then(() => {
     console.log('Conectado ao Banco de Dados')
 }).catch((err) => {
     console.log(`Erro ao conectar-se com o Banco de Dados: ${err}`)
