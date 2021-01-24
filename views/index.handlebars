@@ -1,0 +1,30 @@
+<div class="bg-secondary text-white p-5" >
+    <h1 class='display-4'>Bem-vindo ao Blog do Node</h1>
+    <p>Este é um blog desenvolvido com Node.js + Express + MongoDB</p>
+    <hr>
+    Projeto construído durante o Curso de Node.Js na Workover Academy.
+    <p class='lead'>
+        <a class='btn btn-primary btn-lg mt-3' href="#" role='button'>Crie uma conta</a>
+    </p>
+
+</div>
+
+<hr>
+
+<h2>Postagens Recentes: </h2>
+
+{{#each postagens}}
+<div class='card mt-4'>
+    <div class="card-body">
+              
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class='btn btn-success'>Leia mais</button></a>
+        <hr>
+         <small>Categoria: {{categoria.nome}}</small>
+        <small>Data de publicação: {{date}} </small>
+    </div>
+</div>
+{{else}}
+    <h5>Nenhuma postagem</h5>
+{{/each}}

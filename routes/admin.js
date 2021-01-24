@@ -109,7 +109,7 @@ router.post("/categorias/edit", (req, res) => {
 
 router.post("/categorias/deletar", (req, res) => {
   Categoria.deleteOne({ _id: req.body.id })
-    .then((categoria) => {
+    .then((_categoria) => {
       req.flash("success_msg", "Categoria deletada com sucesso");
       res.redirect("/admin/categorias");
     })
@@ -215,6 +215,19 @@ router.post("/postagem/edit", (req, res) => {
     })      
 
 })
+
+router.delete("/postagens/deletar", (req, res) => {
+    Categoria.deleteOne({ _id: req.body.id })
+      .then((postagem) => {
+        req.flash("success_msg", "Postagem deletada com sucesso");
+        res.redirect("/admin/postagens");
+      })
+      .catch((err) => {
+        req.flash("error_msg", "Houve um erro na tentativa de deletar");
+        res.redirect("/admin/postagens");
+      });
+  });
+  
 
 
 
