@@ -57,7 +57,7 @@ app.set("view engine", "handlebars");
 
 //bd
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@blognode-cluster.wm5bj.mongodb.net/blognode-cluster?retryWrites=true&w=majority`
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 mongoose.connect(mongoURI, { useNewUrlParser: true })
   .then(() => {
     console.log("Conectado ao Banco de Dados");
