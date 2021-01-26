@@ -137,13 +137,14 @@ app.get("/categorias/:slug", (req, res) => {
     });
 });
 
+app.get("/404", (req, res) => {
+  res.send("Erro 404");
+});
+
 app.use("/admin", admin);
 
 app.use("/usuarios", usuarios);
 
-app.get("/404", (req, res) => {
-  res.send("Erro 404");
-});
 
 // outros
 const port = process.env.PORT || 8081;
