@@ -19,3 +19,7 @@ No seu servidor de banco de dados, crie uma base chamada `blognode-cluster` ou a
 **Dependências**
 
 Com o projeto aberto no seu terminal, entre na pasta `server` e, lá, execute o comando `npm install`, para baixar as dependências, você pode usar o `yarn`, se preferir.
+
+**Deploy**
+
+O site encontra-se atualmente no Heroku (https://paisqueamam.herokuapp.com/).
