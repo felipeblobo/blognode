@@ -42,20 +42,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 
-const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@blognode-cluster.wm5bj.mongodb.net/blognode-cluster?retryWrites=true&w=majority`
-mongoose.Promise = global.Promise;
-mongoose
-  .connect(
-    mongoURI,
-    { useUnifiedTopology: true },
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    console.log("Conectado ao Banco de Dados");
-  })
-  .catch((err) => {
-    console.log(`Erro ao conectar-se com o Banco de Dados: ${err}`);
-  });
+//view engine
 app.engine(
   "handlebars",
   handlebars({
@@ -67,6 +54,17 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+//bd
+const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@blognode-cluster.wm5bj.mongodb.net/blognode-cluster?retryWrites=true&w=majority`
+// mongoose.Promise = global.Promise;
+mongoose.connect(mongoURI)
+  .then(() => {
+    console.log("Conectado ao Banco de Dados");
+  })
+  .catch((err) => {
+    console.log(`Erro ao conectar-se com o Banco de Dados: ${err}`);
+  });
 
 // rotas
 
