@@ -10,11 +10,9 @@ const {eAdmin} = require('../helpers/eAdmin');
 router.get("/", eAdmin, (req, res) => {
   res.render("admin/index");
 });
-router.get("/posts",  eAdmin, (req, res) => {
-  res.send("Página de postagens");
-});
+
 router.get("/categorias", eAdmin, (req, res) => {
-  Categoria.find()
+  Categoria.find().lean()
     .sort({ date: "desc" })
     .then((categorias) => {
       res.render("admin/categorias", { categorias: categorias });
@@ -73,7 +71,7 @@ router.post("/categorias/nova", eAdmin, (req, res) => {
 });
 
 router.get("/categorias/edit/:id", eAdmin, (req, res) => {
-  Categoria.findOne({ _id: req.params.id })
+  Categoria.findOne({ _id: req.params.id }).lean()
     .then((categoria) => {
       res.render("admin/editcategorias", { categoria: categoria });
     })
@@ -122,7 +120,7 @@ router.post("/categorias/deletar", eAdmin, (req, res) => {
 
 router.get("/postagens", eAdmin, (req, res) => {
   Postagem.find()
-    .populate("categoria")
+    .populate("categoria").lean()
     .sort({ data: "desc" })
     .then((postagens) => {
       res.render("admin/postagens", { postagens: postagens });
@@ -133,7 +131,7 @@ router.get("/postagens", eAdmin, (req, res) => {
 });
 
 router.get("/postagens/add", eAdmin, (req, res) => {
-  Categoria.find()
+  Categoria.find().lean()
     .then((categorias) => {
       res.render("admin/addpostagem", { categorias: categorias });
     })
@@ -177,9 +175,9 @@ router.post("/postagens/nova", eAdmin, (req, res) => {
 });
 
 router.get("/postagens/edit/:id", eAdmin, (req, res) => {
-    Postagem.findOne({ _id: req.params.id })
+    Postagem.findOne({ _id: req.params.id }).lean()
       .then((postagem) => {
-    Categoria.find().then((categorias) => {
+    Categoria.find().lean().then((categorias) => {
         res.render("admin/editpostagens", { categorias: categorias, postagem: postagem});
     }).catch((err) => {
         req.flash("error_msg", "Houve um erro as listar categorias");

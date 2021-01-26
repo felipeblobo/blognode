@@ -71,7 +71,7 @@ app.set("view engine", "handlebars");
 // rotas
 
 app.get("/", (req, res) => {
-  Postagem.find()
+  Postagem.find().lean()
     .populate("categoria")
     .sort({ date  : "desc" })
     .then((postagens) => {
@@ -79,13 +79,12 @@ app.get("/", (req, res) => {
     })
     .catch((err) => {
       req.flash("error_msg", "Houve um erro interno.");
-      console.log(err);
       res.redirect("/404");
     });
 });
 
 app.get("/postagem/:slug", (req, res) => {
-  Postagem.findOne({ slug: req.params.slug })
+  Postagem.findOne({ slug: req.params.slug }).lean()
     .then((postagem) => {
       if (postagem) {
         res.render("postagem/index", { postagem: postagem });
@@ -101,7 +100,7 @@ app.get("/postagem/:slug", (req, res) => {
 });
 
 app.get("/categorias", (req, res) => {
-  Categoria.find()
+  Categoria.find().lean()
     .then((categorias) => {
       res.render("categorias/index", { categorias: categorias });
     })
@@ -112,10 +111,10 @@ app.get("/categorias", (req, res) => {
 });
 
 app.get("/categorias/:slug", (req, res) => {
-  Categoria.findOne({ slug: req.params.slug })
+  Categoria.findOne({ slug: req.params.slug }).lean()
     .then((categoria) => {
       if (categoria) {
-        Postagem.find({ categoria: categoria._id })
+        Postagem.find({ categoria: categoria._id }).lean()
           .then((postagens) => {
             res.render("categorias/postagens", {
               postagens: postagens,
