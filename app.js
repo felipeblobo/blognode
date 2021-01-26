@@ -3,7 +3,6 @@ const handlebars = require("express-handlebars");
 const mongoose = require("mongoose");
 const app = express();
 const admin = require("./routes/admin.js");
-const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
 require("./models/Postagem");
@@ -69,7 +68,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.use(express.static(path.join(__dirname, 'public')));
 // rotas
 
 app.get("/", (req, res) => {
