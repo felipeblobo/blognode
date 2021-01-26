@@ -193,7 +193,7 @@ router.get("/postagens/edit/:id", eAdmin, (req, res) => {
       });
   });
 
-router.put("/postagem/edit", eAdmin, (req, res) => {
+router.post("/postagem/edit", eAdmin, (req, res) => {
     Postagem.findOne({ _id: req.body.id }).then((postagem) => {
         postagem.titulo = req.body.titulo
         postagem.slug = req.body.slug

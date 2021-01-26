@@ -13,6 +13,8 @@ const Categoria = mongoose.model("categorias");
 const usuarios = require("./routes/usuario");
 const passport = require("passport");
 require("./config/auth")(passport);
+const db = require('./config/db');
+require('dotenv').config();
 
 // configurações
 app.use(
@@ -45,7 +47,7 @@ app.use(express.json());
 mongoose.Promise = global.Promise;
 mongoose
   .connect(
-    "mongodb://localhost/blognode",
+    db.mongoURI,
     { useUnifiedTopology: true },
     { useNewUrlParser: true }
   )
@@ -148,7 +150,7 @@ app.get("/404", (req, res) => {
 });
 
 // outros
-const port = 8081;
+const port = process.env.PORT || 8081;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}!`);
 });
