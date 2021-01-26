@@ -13,7 +13,6 @@ const Categoria = mongoose.model("categorias");
 const usuarios = require("./routes/usuario");
 const passport = require("passport");
 require("./config/auth")(passport);
-const db = require('./config/db');
 require('dotenv').config();
 
 // configurações
@@ -44,10 +43,11 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 
+const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@blognode-cluster.wm5bj.mongodb.net/blognode-cluster?retryWrites=true&w=majority`
 mongoose.Promise = global.Promise;
 mongoose
   .connect(
-    db.mongoURI,
+    mongoURI,
     { useUnifiedTopology: true },
     { useNewUrlParser: true }
   )
