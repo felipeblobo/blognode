@@ -73,7 +73,7 @@ app.set("view engine", "handlebars");
 app.get("/", (req, res) => {
   Postagem.find()
     .populate("categoria")
-    .sort({ data: "desc" })
+    .sort({ date: "desc" })
     .then((postagens) => {
       res.render("index", { postagens: postagens });
     })
