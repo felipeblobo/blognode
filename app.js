@@ -73,12 +73,13 @@ app.set("view engine", "handlebars");
 app.get("/", (req, res) => {
   Postagem.find()
     .populate("categoria")
-    .sort({ date: "desc" })
+    .sort({ date  : "desc" })
     .then((postagens) => {
       res.render("index", { postagens: postagens });
     })
     .catch((err) => {
       req.flash("error_msg", "Houve um erro interno.");
+      console.log(err);
       res.redirect("/404");
     });
 });
