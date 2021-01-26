@@ -69,7 +69,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 // rotas
 
 app.get("/", (req, res) => {
