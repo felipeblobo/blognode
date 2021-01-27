@@ -1,7 +1,7 @@
 #cover {
     background: url('../img/cover.jpg');
     background-size: cover;
-    background-position: 25% 75%;
+    background-position: center;
     background-repeat: no-repeat;
     height: 650px;
 };
@@ -16,8 +16,13 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.textShadow {
+    text-shadow: 1px 1px 2px black;
+}
+
 #tituloPrincipal {
     font-family: 'Dancing Script', cursive;
+    
 }
 
 @media (max-width: 425px) {
