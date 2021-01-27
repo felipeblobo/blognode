@@ -53,9 +53,11 @@ app.engine(
       allowProtoPropertiesByDefault: true,
       allowProtoMethodsByDefault: true,
     },
+    partialsDir: __dirname + '/views/partials'
   })
 );
 app.set("view engine", "handlebars");
+app.set('views', __dirname + '/views');
 
 
 //bd
