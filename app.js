@@ -23,6 +23,8 @@ app.use(
   })
 );
 
+app.use(express.static(__dirname + '/public'));
+
 //config passport
 app.use(passport.initialize()); 
 app.use(passport.session());
@@ -54,6 +56,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
 
 //bd
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@blognode-cluster.wm5bj.mongodb.net/blognode-cluster?retryWrites=true&w=majority`
@@ -144,6 +147,7 @@ app.get("/404", (req, res) => {
 app.use("/admin", admin);
 
 app.use("/usuarios", usuarios);
+
 
 
 // outros

@@ -1,17 +1,26 @@
-<div class="bg-secondary text-white p-5" >
-    <h1 class='display-4 mb-5'>Pais que Amam e Constrangem</h1>
-    Aqui é seu diário de bordo para tornar eternas as peripécias do seu filho ou filha. E também, para deixar aquelas mensagens carinhosas que os deixaram constrangidos por toda a adolescência.
-    <hr>
-    <p>Este é um blog desenvolvido com Node.js + Express + MongoDB. Projeto construído durante o Curso de Node.Js na Workover Academy.</p>
-    
-    <p class='lead'>
-        <a class='btn btn-primary btn-lg mt-3' href="./usuarios/registro" role='button'>Crie uma conta</a>
-    </p>
 
+<div id='cover' class="p-5 text-white">
+     <div class="container">
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{else}}
+            
+        {{/if}}
+        {{>_msg}}   
+    </div>
+    <div class='col-md-6'>
+        <h1 class='display-4 mb-5'>Pais que Amam e Constrangem</h1>
+        Aqui é seu diário de bordo para tornar eternas as peripécias do seu filho ou filha. E também, para deixar aquelas mensagens carinhosas que os deixaram constrangidos por toda a adolescência.
+        <hr>
+        <p>Este é um blog desenvolvido com Node.js + Express + MongoDB. Projeto construído durante o Curso de Node.Js na Workover Academy.</p>
+        
+        <p class='lead'>
+            <a id='btn-cover' class='btn btn-primary btn-lg mt-3' href="./usuarios/registro" role='button'>Crie uma conta</a>
+        </p>
+    </div>
 </div>
-
 <hr>
-
+<div class="container mt-4">
 <h2>Postagens Recentes: </h2>
 
 {{#each postagens}}
@@ -29,3 +38,4 @@
 {{else}}
     <h5>Nenhuma postagem</h5>
 {{/each}}
+</div>

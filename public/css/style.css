@@ -1,0 +1,8 @@
+#cover {
+    background: url('../img/cover.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px;
+};
+
