@@ -48,17 +48,11 @@ app.use(express.json());
 app.engine(
   "handlebars",
   handlebars({
-    defaultLayout: "main",
-    runtimeOptions: {
-      allowProtoPropertiesByDefault: true,
-      allowProtoMethodsByDefault: true,
-    },
-    partialsDir: __dirname + '/views/partials'
-  })
+    defaultLayout: "main"
+    }
+  )
 );
 app.set("view engine", "handlebars");
-app.set('views', __dirname + '/views');
-
 
 //bd
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@blognode-cluster.wm5bj.mongodb.net/blognode-cluster?retryWrites=true&w=majority`
