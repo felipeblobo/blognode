@@ -1,22 +1,24 @@
 <div class="container mt-4">
 
-<h2>Lista de postagens: </h2>
-<hr>
-<a target='_blank' href='/admin/postagens/add'><button class='btn btn-success'>Nova postagem</button></a>
+    <h2>Lista de postagens: </h2>
+    <hr>
+    <a target='_blank' href='/admin/postagens/add'><button class='btn btn-success'>Nova postagem</button></a>
 
-{{#each postagens}}
-<div class="card mt-4">
-    <div class="card-body ">
-        <h4>{{titulo}}</h4>
-        <p>Descrição: {{descricao}}</p>
-        <small>Data: {{date}}</small>
-        <small>Categoria: {{categoria.nome}}</small><br>
-        <a href="/admin/postagens/edit/{{_id}}"><button class='btn btn-outline-primary mt-4'>Editar Postagem</button></a>
-        <br>
-        <a href="/admin/postagens/deletar/{{_id}}" method='DELETE'><button class='btn btn-outline-danger mt-2'>Deletar Postagem</button></a>
+    {{#each postagens}}
+    <div class="card mt-4">
+        <div class="card-body ">
+            <h4>{{titulo}}</h4>
+            <p>Descrição: {{descricao}}</p>
+            <small>Data: {{date}}</small>
+            <small>Categoria: {{categoria.nome}}</small><br>
+            <a href="/admin/postagens/edit/{{_id}}"><button class='btn btn-outline-primary mt-4'>Editar
+                    Postagem</button></a>
+            <br>
+            <a href="/admin/postagens/deletar/{{_id}}" method='DELETE'><button
+                    class='btn btn-outline-danger mt-2'>Deletar Postagem</button></a>
+        </div>
     </div>
-</div>
-{{else}}
-<p>Nenhuma postagem registrada!</p>
-{{/each}}
+    {{else}}
+    <p>Nenhuma postagem registrada!</p>
+    {{/each}}
 </div>

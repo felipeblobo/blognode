@@ -1,18 +1,18 @@
 <div class="container mt-4">
-<h2 class='mb-5'>{{categoria.nome}}</h2>
+    <h2 class='mb-5'>{{categoria.nome}}</h2>
 
-{{#each postagens}}
-<div class='card mt-4'>
-    <div class="card-body">
-              
-        <h3>{{titulo}}</h3>
-        <p>{{descricao}}</p>
-        <a href="/postagem/{{slug}}"><button class='btn btn-success'>Leia mais</button></a>
-        <hr>    
-        <small>Data de publicação: {{date}} </small>
+    {{#each postagens}}
+    <div class='card mt-4'>
+        <div class="card-body">
+
+            <h3>{{titulo}}</h3>
+            <p>{{descricao}}</p>
+            <a href="/postagem/{{slug}}"><button class='btn btn-success'>Leia mais</button></a>
+            <hr>
+            <small>Data de publicação: {{date}} </small>
+        </div>
     </div>
-</div>
-{{else}}
+    {{else}}
     <h5>Nenhuma postagem</h5>
-{{/each}}
+    {{/each}}
 </div>

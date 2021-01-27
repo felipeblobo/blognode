@@ -1,10 +1,12 @@
 <div class="container mt-4">
-<h4>Categorias: </h4>
-<hr class='mb-5'>
+    <h4>Categorias: </h4>
+    <hr class='mb-5'>
 
-{{#each categorias}}
-    <a href="/categorias/{{slug}}"><h5>{{nome}}</h5></a> 
-{{else}}
+    {{#each categorias}}
+    <a href="/categorias/{{slug}}">
+        <h5>{{nome}}</h5>
+    </a>
+    {{else}}
 
-{{/each}}
+    {{/each}}
 </div>

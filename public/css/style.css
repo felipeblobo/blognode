@@ -3,6 +3,19 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 650px;
 };
 
+#midleCover {
+    
+    background-color: #207e7e;
+}
+
+body {
+    background-color: #404952;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#tituloPrincipal {
+    font-family: 'Dancing Script', cursive;
+}

@@ -1,41 +1,65 @@
+<div id='cover' class="p-5 text-white mb-5">
+  <div class="container">
+    {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+    {{else}}
 
-<div id='cover' class="p-5 text-white">
-     <div class="container">
-        {{#if error}}
-            <div class="alert alert-danger">{{error}}</div>
-        {{else}}
-            
-        {{/if}}
-        {{>_msg}}   
-    </div>
-    <div class='col-md-6'>
-        <h1 class='display-4 mb-5'>Pais que Amam e Constrangem</h1>
-        Aqui é seu diário de bordo para tornar eternas as peripécias do seu filho ou filha. E também, para deixar aquelas mensagens carinhosas que os deixaram constrangidos por toda a adolescência.
-        <hr>
-        <p>Este é um blog desenvolvido com Node.js + Express + MongoDB. Projeto construído durante o Curso de Node.Js na Workover Academy.</p>
-        
-        <p class='lead'>
-            <a id='btn-cover' class='btn btn-primary btn-lg mt-3' href="./usuarios/registro" role='button'>Crie uma conta</a>
-        </p>
-    </div>
+    {{/if}}
+    {{>_msg}}
+  </div>
+  <div class='col-md-6 '>
+    <h1 id='tituloPrincipal' class='display-4 my-5'>Pais que Amam e Constrangem</h1>
+    Aqui é seu diário de bordo para tornar eternas as peripécias do seu filho ou filha. E também, para deixar aquelas
+    mensagens carinhosas que os deixaram constrangidos por toda a adolescência.
+    <hr>
+    <p>Este é um blog desenvolvido com Node.js + Express + MongoDB. Projeto construído durante o Curso de Node.Js na
+      Workover Academy.</p>
+
+    <p class='lead'>
+      <a id='btn-cover' class='btn btn-primary btn-lg mt-3' href="./usuarios/registro" role='button'>Crie uma conta</a>
+    </p>
+  </div>
 </div>
-<hr>
+<div id='midleCover' class="container pt-5">
+  <div class="row">
+    <div class="col-md-6 mb-5">
+      <img class='img-fluid rounded'
+        src="https://images.unsplash.com/photo-1551966775-a4ddc8df052b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+        alt="">
+    </div>
+    <div class="col-md-6 mb-5">
+      <img class='img-fluid rounded'
+        src="https://images.unsplash.com/photo-1473594659356-a404044aa2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80"
+        alt="">
+    </div>
+    <div class="col-md-6">
+      <img class='img-fluid rounded'
+        src="https://images.unsplash.com/flagged/photo-1557828823-b5bb7f45d726?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+        alt="">
+    </div>
+    <div class="col-md-6">
+      <img class='img-fluid rounded'
+        src="https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
+        alt="">
+    </div>
+  </div>
+</div>
 <div class="container mt-4">
-<h2>Postagens Recentes: </h2>
+  <h2>Postagens Recentes: </h2>
 
-{{#each postagens}}
-<div class='card mt-4'>
+  {{#each postagens}}
+  <div class='card mt-4'>
     <div class="card-body">
-              
-        <h3>{{titulo}}</h3>
-        <p>{{descricao}}</p>
-        <a href="/postagem/{{slug}}"><button class='btn btn-success'>Leia mais</button></a>
-        <hr>
-         <small>Categoria: {{categoria.nome}}</small>
-        <small>Data de publicação: {{date}} </small>
+
+      <h3>{{titulo}}</h3>
+      <p>{{descricao}}</p>
+      <a href="/postagem/{{slug}}"><button class='btn btn-success'>Leia mais</button></a>
+      <hr>
+      <small>Categoria: {{categoria.nome}}</small>
+      <small>Data de publicação: {{date}} </small>
     </div>
-</div>
-{{else}}
-    <h5>Nenhuma postagem</h5>
-{{/each}}
+  </div>
+  {{else}}
+  <h5>Nenhuma postagem</h5>
+  {{/each}}
 </div>
