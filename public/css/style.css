@@ -16,6 +16,10 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.card {
+    background-color: #e6e3e3;
+}
+
 .textShadow {
     text-shadow: 1px 1px 2px black;
     
@@ -27,14 +31,13 @@ body {
 }
 
 .cardIndex {
-    background-color: #e6e3e3;
     width: 50%
 }
 
 /* Login and Registro */
 
 .entryCard {
-    background-color: #e6e3e3;
+    
     width: 30%
 }
 
@@ -44,6 +47,10 @@ body {
         background-position: right center;
     }
     
+    #tituloPrincipal {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important
+    }
 }
 
 
@@ -52,7 +59,15 @@ body {
     .entryCard {
         
         width: 95%
-} }
+} 
+
+    #tituloPrincipal {
+
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important
+}
+
+}
 
 
 @media (max-width: 1024px) {
@@ -60,5 +75,11 @@ body {
     .entryCard {
         
         width: 60%
-} }
+} 
+    #tituloPrincipal {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important
+}
+
+}
 
