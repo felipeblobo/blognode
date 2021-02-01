@@ -41,6 +41,15 @@ body {
     width: 30%
 }
 
+#footer {
+    font-size: 0.8rem;
+
+/* #git {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+} */
+
 @media (max-width: 425px) {
     #header {
         padding-top: 1rem !important;
