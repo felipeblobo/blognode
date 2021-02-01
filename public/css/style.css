@@ -44,6 +44,7 @@ body {
 
 footer {
     font-size: 0.8rem;
+    width: 100%;
 }
 
 @media (max-width: 425px) {
