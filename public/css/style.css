@@ -42,7 +42,14 @@ body {
 }
 
 @media (max-width: 425px) {
-
+    #header {
+        padding-top: 1rem !important;
+    }
+        
+    .headerText {
+        font-size: 1.2rem !important;
+    }    
+    
     #cover {
         background-position: right center;
     }
@@ -51,10 +58,10 @@ body {
         margin-top: 0 !important;
         margin-bottom: 1rem !important
     }
+
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
     .entryCard {
         
@@ -68,18 +75,3 @@ body {
 }
 
 }
-
-
-@media (max-width: 1024px) {
-
-    .entryCard {
-        
-        width: 60%
-} 
-    #tituloPrincipal {
-    margin-top: 0 !important;
-    margin-bottom: 1rem !important
-}
-
-}
-

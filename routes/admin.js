@@ -215,9 +215,9 @@ router.post("/postagem/edit", eAdmin, (req, res) => {
 
 })
 
-router.delete("/postagens/deletar", eAdmin, (req, res) => {
-    Categoria.deleteOne({ _id: req.body.id })
-      .then((postagem) => {
+router.get("/postagens/deletar/:id", eAdmin, (req, res) => {
+    Postagem.deleteOne({ _id: req.params.id })
+      .then((_postagem) => {
         req.flash("success_msg", "Postagem deletada com sucesso");
         res.redirect("/admin/postagens");
       })
@@ -225,7 +225,7 @@ router.delete("/postagens/deletar", eAdmin, (req, res) => {
         req.flash("error_msg", "Houve um erro na tentativa de deletar");
         res.redirect("/admin/postagens");
       });
-  });
+  }); 
   
 
 
