@@ -14,6 +14,7 @@
 body {
     background-color: #b3b3b3;
     font-family: 'Open Sans Condensed', sans-serif;
+    
 }
 
 .card {
@@ -41,14 +42,9 @@ body {
     width: 30%
 }
 
-#footer {
+footer {
     font-size: 0.8rem;
-
-/* #git {
-    width: 20px;
-    height: 20px;
-    color: #fff;
-} */
+}
 
 @media (max-width: 425px) {
     #header {
